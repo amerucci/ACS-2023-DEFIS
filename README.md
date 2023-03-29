@@ -4,6 +4,6 @@
 
 ## CSS
 
- - 1. Alignement
- - 2. Selecteurs
- - 3. Positions
+ - Alignement
+ - Selecteurs
+ - Positions
