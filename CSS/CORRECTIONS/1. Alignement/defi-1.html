@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Defi CSS 01 - Alignement</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <style>
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    .square {
+      width: 350px;
+      height: 350px;
+      margin: 20px auto;
+    }
+
+    .s1 {
+      background: salmon;
+    }
+
+    .s2 {
+      background: lightblue;
+    }
+
+    .s3 {
+      background: lightgreen;
+    }
+
+    .s4 {
+      background: khaki;
+    }
+
+    .s5 {
+      background: sandybrown;
+    }
+
+    .s6 {
+      background: slateblue;
+    }
+
+    .s7 {
+      background: red;
+    }
+
+    #resultat {
+      flex-wrap: wrap;
+      display: flex
+    }
+
+    /* 1 */
+    .s1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .s2 {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .s3 {
+      position: relative;
+
+    }
+
+    .s3 h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* right:0; */
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      width: 100%;
+    }
+
+    .s4 {
+      display: flex;
+    }
+
+    .s4 h1 {
+      margin: auto;
+    }
+
+
+
+
+    .s5 h1 {
+      text-align: center;
+      line-height: 350px
+    }
+
+    .s6 {
+      display: table;
+      text-align: center;
+    }
+
+    .s6 h1 {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+
+
+  </style>
+
+
+  <div class="container">
+    <div class="d-flex justify-content-between mb-3">
+
+      <div class="logo-acs"><img src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+          style="max-height: 66px; max-width: 200px;" />
+      </div>
+
+
+      <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+          style="max-height: 66px; max-width: 200px;" />
+      </div>
+
+    </div>
+
+    <div class="jumbotron">
+      <h1>Defi CSS 01 - Alignement</h1>
+      <p> Trouve 6 façons de parfaitement centrer un élément sur x & y. Horizontalement et Verticalement.</p>
+    </div>
+    <div id="resultat">
+      <div class="square s1">
+        <h1>Centre moi</h1>
+      </div>
+      <div class="square s2">
+        <h1>Centre moi</h1>
+      </div>
+      <div class="square s3">
+        <h1>Centre moi</h1>
+      </div>
+      <div class="square s4">
+        <h1>Centre moi</h1>
+      </div>
+      <div class="square s5">
+        <h1>Centre moi</h1>
+      </div>
+      <div class="square s6">
+        <h1>Centre moi</h1>
+      </div>
+
+     
+    </div>
+
+  </div>
+
+</body>
+
+</html>

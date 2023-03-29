@@ -1,0 +1,96 @@
+
+/* Defi 01 */
+nav a {
+    color: #f8f9fa;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 10px;
+
+    /* Solution */
+
+    position:fixed
+
+  }
+  
+  .content {
+    font-size: 14px;
+    padding: 100px;
+    color: #212529;
+    line-height: 1.5;
+    padding-right: 0;
+    padding-left: 300px;
+    padding-top: 0;
+  }
+
+  nav {
+    width: 250px;
+    background: #212529;
+    display: flex;
+    padding: 15px 0;
+    flex-direction: column;
+  }
+  
+  
+/* Defi 02 */
+  
+  .box {
+    max-width: 300px;
+    min-height: 300px;
+    background: #f1f1f1;
+    margin: 100px auto 0;
+
+    /* solution */
+    position:relative;
+  }
+  
+  .square {
+    background: violet;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -10%)  ;
+    
+    /*solution*/
+    position: absolute;
+    transform: translate(-50%, -50%)  ;
+    -webkit-transform: translate(-50%, -50%)  ;
+    -moz-transform: translate(-50%, -50%)  ;
+    -ms-transform: translate(-50%, -50%)  ;
+    -o-transform: translate(-50%, -50%)  ;
+}
+  
+  /* ex3 */
+  
+  .floating-btn {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    font-size: 20px;
+  }
+
+  .b1{
+    position:absolute;
+    top:0;
+    left:0;
+  }
+
+  .b2{
+    position:absolute;
+    top:0;
+    right:0;
+  }
+
+  .b3{
+    position:absolute;
+    bottom: 0;
+    left:0;
+  }
+
+  .b4{
+    position:absolute;
+    bottom: 0;
+    right:0;
+  }
+
+  
