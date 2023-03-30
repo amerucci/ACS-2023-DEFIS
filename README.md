@@ -7,3 +7,4 @@
  - Alignement
  - Selecteurs
  - Positions
+ - Navbars
