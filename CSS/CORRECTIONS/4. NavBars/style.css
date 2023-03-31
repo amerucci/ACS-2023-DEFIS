@@ -1,0 +1,101 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav {
+    padding: 20px;
+    background: #333;
+}
+nav:not(:first-of-type){
+    margin-top: 20px;
+}
+nav a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin:0 10px;
+}
+
+nav button {
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    min-width: 150px;
+    text-align: center;
+}
+
+nav img {
+    width: 150px;
+    filter: invert(82%);
+    -webkit-filter: invert(82%);
+}
+
+.media-icons:not(.media-icons:last-of-type) {
+    margin-right: 20px;
+}
+
+/* Utilisez Flexbox pour résoudre ces problèmes liés aux Navbars. */
+
+/* Nav #1 */
+/* Centrer sur X */
+
+.nav-1 {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Nav #2 */
+/* Centrer sur Y et afficher les boutons à droite */
+
+.nav-2 {
+    display: flex;
+    align-items: center;
+}
+.sign-in-btn {
+    margin-left: auto;
+}
+.sign-up-btn {
+    margin-left: 15px;
+}
+
+
+
+/* Nav #3 */
+/* Mettre l'icône à gauche et les liens à droite */
+
+.nav-3 {
+    display: flex;
+    align-items: center;
+}
+.nav-3 a:first-of-type {
+    margin-left: auto;
+}
+
+
+
+
+/* Nav #4 */
+/* Mettre l'icône Saturne au milieu et les liens à gauche */
+
+
+.nav-4 {
+    display: flex;
+    align-items: center;
+
+}
+.nav-4 .links-container {
+    width: 50%;
+}
+.empty-layout {
+    width: 50%;
+}
+
+
+
