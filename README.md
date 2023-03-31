@@ -8,3 +8,4 @@
  - Selecteurs
  - Positions
  - Navbars
+ - Les pseudo-elements
