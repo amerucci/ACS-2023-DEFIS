@@ -1,0 +1,71 @@
+.square{
+  width: 150px;
+  height:150px;
+  background: black;
+  margin: auto;
+}
+
+/* Si l'on écrit cela comme ca problème */
+
+@media (max-width:480px){
+  .square{
+    background: red;
+  }
+}
+
+@media (max-width:768px){
+  .square{
+    background: green;
+  }
+}
+
+@media (max-width:1024px){
+  .square{
+    background: blue;
+  }
+}
+
+@media (max-width:1200px){
+  .square{
+    background: orange;
+  }
+}
+
+@media (min-width:1201px){
+  .square{
+    background: violet;
+  }
+}
+
+/* Comme le navigateur lit de haut en bas, si la taille est de 400px, certes c'est plus petit que 480 mais par longique c'est aussi plus petit que 1200px, donc il prendra en compte la dernière propriété juste rencontrée. Pour cela nous pouvons écire comme cela */
+
+@media (max-width:1200px){
+  .square{
+    background: orange;
+  }
+}
+
+@media (max-width:1024px){
+  .square{
+    background: blue;
+  }
+}
+
+@media (max-width:768px){
+  .square{
+    background: green;
+  }
+}
+
+@media (max-width:480px){
+  .square{
+    background: red;
+  }
+}
+
+@media (min-width:1201px){
+  .square{
+    background: violet;
+  }
+}
+
