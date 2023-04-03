@@ -17,6 +17,6 @@
 
 - Navbars => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/4.%20NavBars) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/4.%20NavBars)
 
-- Les pseudo-elements => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/5.%20Les%20pseudos%20%C3%A9l%C3%A9ments) - CORRECTION
+- Les pseudo-elements => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/5.%20Les%20pseudos%20%C3%A9l%C3%A9ments) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/5.%20Les%20pseudos%20%C3%A9l%C3%A9ments)
 
 - Les mediaQueries => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/6.%20Les%20Media%20Queries) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/6.%20Les%20Media%20Queries)
