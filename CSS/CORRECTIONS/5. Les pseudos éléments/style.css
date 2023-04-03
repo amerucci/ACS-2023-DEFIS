@@ -1,0 +1,14 @@
+#resultat{
+  width: 100%;
+  text-align: center;
+}
+
+.baseTxt::before{
+  content: "Avant c'était bleu ";
+  color:blue;
+}
+
+.baseTxt::after{
+  content: " après c'était rouge";
+  color: red;
+}
