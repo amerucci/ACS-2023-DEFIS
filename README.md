@@ -21,7 +21,7 @@
 
 - Les mediaQueries => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/6.%20Les%20Media%20Queries) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/6.%20Les%20Media%20Queries)
 
-- Les polices => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/7.%20Les%20polices) - [CORRECTION]
+- Les polices => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/7.%20Les%20polices) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/7.%20Les%20polices)
 
 
 
