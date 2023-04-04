@@ -1,0 +1,21 @@
+/* font-family: 'Life Savers', cursive;
+font-family: 'Noto Serif', serif;
+font-family: 'Quattrocento', serif; */
+
+body{
+    font-size: 16px;
+}
+
+.h1Title{
+    font-family: 'Noto Serif', serif; 
+    font-size:5rem
+}
+
+.h2Title{
+    font-family: 'Life Savers', cursive;
+    font-size:3rem
+}
+.pContent{
+    font-family: 'Quattrocento', serif; 
+    font-size:1.1rem
+}
