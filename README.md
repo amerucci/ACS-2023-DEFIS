@@ -23,7 +23,7 @@
 
 - Les polices => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/7.%20Les%20polices) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/7.%20Les%20polices)
 
-- Les animations => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/8.%20Animation) - [CORRECTION]
+- Les animations => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/8.%20Animation) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/8.%20Animation)
 
 
 
