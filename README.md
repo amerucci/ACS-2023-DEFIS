@@ -25,6 +25,6 @@
 
 - Les animations => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/8.%20Animation) - [CORRECTION](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CORRECTIONS/8.%20Animation)
 
-- Les transitions => [CONSIGNE] (https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/9.%20Transitions)
+- Les transitions => [CONSIGNE](https://github.com/amerucci/ACS-2023-DEFIS/tree/main/CSS/CONSIGNES/9.%20Transitions)
 
 
