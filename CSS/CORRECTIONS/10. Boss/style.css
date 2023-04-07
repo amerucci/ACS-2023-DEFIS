@@ -1,0 +1,216 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #f1f1f1;
+  font-family: roboto, sans-serif;
+  color: #333;
+}
+
+/* font-family: 'Climate Crisis', cursive;
+font-family: 'Special Elite', cursive; */
+
+/* Navigation */
+
+nav {
+  position: absolute;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  /* au dessus de home */
+  z-index: 10;
+}
+nav a {
+  color: #f1f1f1;
+  font-size: 20px;
+  margin: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: white;
+  transform: translate(-50%);
+  transition: width 0.5s, left 0.5s, transform 0.5s;
+  left: 50%;
+  -webkit-transition: width 0.5s, left 0.5s, transform 0.5s;
+  -moz-transition: width 0.5s, left 0.5s, transform 0.5s;
+  -ms-transition: width 0.5s, left 0.5s, transform 0.5s;
+  -o-transition: width 0.5s, left 0.5s, transform 0.5s;
+  -webkit-transform: translate(-50%);
+  -moz-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  -o-transform: translate(-50%);
+}
+
+nav a:hover::after {
+  background: #fff;
+  width: 100%;
+  transition: width 0.5s, left 0.5s;
+  -webkit-transition: width 0.5s, left 0.5s;
+  -moz-transition: width 0.5s, left 0.5s;
+  -ms-transition: width 0.5s, left 0.5s;
+  -o-transition: width 0.5s, left 0.5s;
+}
+
+.home {
+  height: 100vh;
+  background: url(ressources/VaVV.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 0 50px;
+  position: relative;
+}
+.home h1 {
+  font-family: 'Climate Crisis', cursive;
+  padding-top: 200px;
+  font-size: clamp(25px, 7vw, 110px);
+  text-transform: uppercase;
+  color: #f1f1f1;
+  font-weight: 900;
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+  position:relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  -moz-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  -o-transform: translate(-50%, 0);
+  max-width: 800px;
+  text-align: center;
+}
+.home .subtitle {
+  font-family: 'Special Elite', cursive;
+  font-size: clamp(20px, 7vw, 30px);
+  text-transform: uppercase;
+  color: #f1f1f1;
+  font-weight: 900;
+  letter-spacing: -1px;
+  max-width: 800px;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, 0);
+  text-align: center;
+  margin-top: 40px;
+}
+.stream-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 225px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+  color: #f1f1f1;
+  text-decoration: none;
+  background: #f1f1f1;
+  color: #333;
+  padding: 10px 12px;
+  border-radius: 3px;
+  margin-top: 15px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 20px;
+}
+.stream-link:hover {
+  box-shadow: 0 5px 15px rgba(255, 2552, 255, 0.2);
+}
+.stream-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.floating-btn {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 #fff;
+  animation: pulse 1.3s infinite;
+}
+
+@keyframes pulse {
+  to {
+    box-shadow: 0 0 0 1rem rgba(255, 255, 255, 0.01);
+  }
+}
+.floating-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 650px) {
+  .home {
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home h1 {
+    padding-top: 100px;
+  }
+  .subtitle {
+      margin-top: 5px;
+  }
+  nav a {
+    font-size: 18px;
+  }
+  .stream-link {
+    max-width: 145px;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .stream-link img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .floating-btn {
+    width: 45px;
+    height: 45px;
+  }
+  .floating-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .home {
+    padding: 0 10px;
+  }
+
+  nav {
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    flex-direction: column;
+    text-align: center;
+}
+}
