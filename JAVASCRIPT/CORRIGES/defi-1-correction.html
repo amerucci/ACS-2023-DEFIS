@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 01</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 01</h1>
+            <p> Au chargement de la page, l'utilisateur est invité à saisir son nom et son prénom dans une boite de dialogue. Afficher dans la page web le message suivant : 'Votre prénom est ... et votre nom est ...'</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat">
+            toto
+        </div>
+
+        <script>
+            let nom = prompt("Merci de saisir votre nom");
+            let prenom = prompt("Merci de saisir votre prenom");
+            let resultat = document.getElementById("resultat");
+            resultat.innerHTML = "votre prénom est "+prenom+" et votre nom est "+nom
+            console.log("votre prénom est "+prenom+" et votre nom est "+nom);
+            
+            
+        </script>
+
+    </div>
+
+</body>
+
+</html>
