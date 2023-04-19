@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 02</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 02</h1>
+            <p> Au chargement de la page, l'utilisateur rentre son âge dans un prompteur : S’il a plus de 18 ans, alors
+                écrire sur la page web 'Tu es majeur.' sinon 'Tu es mineur.'</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat">
+
+        </div>
+
+    </div>
+    <script>
+
+
+
+        let resultat =  document.getElementById("resultat");
+        let age = Number(window.prompt("Merci de saisir ton age", ""));
+        let prenom = prompt("Merci de saisir ton prenom");
+        let nom = prompt("Merci de saisir ton nom");
+        let message
+
+        if(isNaN(age)){
+            age = Number(window.prompt("Merci de saisir ton age (Attention tu n'as pas saisi de nombre)", ""));
+        }
+
+        if (age >= 18) {
+            message = "Bonjour "+prenom+" "+nom+" tu es majeur";
+        } else {
+            message = "Bonjour "+prenom+" "+nom+" tu es mineur";
+        }
+
+     
+        resultat.innerHTML = message;
+    </script>
+</body>
+
+</html>
