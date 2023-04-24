@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 05</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 05</h1>
+            <p>Créer une variable de type Tableau comportant six technologies web. Faire une boucle qui va parcourir les
+                éléments du tableau si le nom de la technologie contient la lettre e alors remplacer les lettres e par
+                les lettres a. Afficher le contenu final de votre tableau sur la page</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat">
+
+        </div>
+        
+    </div>
+    <script>
+        let technos = ["php", "html", "vue.js", "jquery", "css", "socket", "elle"]
+        let resultat = ""
+        let i
+        for (i = 0; i < technos.length; i++) {
+            resultat += "<li>" + technos[i].replace("e", "a") + "</li>"; //Utiliser replaceAll si vous souhaitez changer tous les e en a et pas juste le premier qu'il rencontre
+        }
+        document.getElementById("resultat").innerHTML = resultat;
+    </script>
+</body>
+
+</html>
