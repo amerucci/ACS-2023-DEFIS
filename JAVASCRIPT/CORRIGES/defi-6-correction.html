@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 06</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 06</h1>
+            <p>Lorsque l'on clique sur le bouton 'Générer' exécuter un code qui générera un mot de passe aléatoire. Le
+                mot de passe doit être compris entre 8 et 16 caractère aléatoirement aussi. Afficher le mot de passe
+                dans un paragraphe en dessous du bouton.</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat">
+            <button id="generer">Générer</button>
+            <p id="mdp"></p>
+        </div>
+
+    </div>
+    <script>
+        document.getElementById("generer").addEventListener("click", function () {
+            let minchar = 8
+            let maxchar = 16
+            var charactere = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghijklmnopqrstuvwxyz";
+            var string_length = Math.floor(Math.random() * (maxchar - minchar + 1)+minchar);
+            //On sait qu'au minimum on doit avoir 8 caractères minimums dans notre mot de passe
+            //On sait aussi que au maximum il doit nous proposer 9 possibilités donc un chiffre entre 0 et 8
+            console.log(Math.floor(Math.random() * (maxchar - minchar + 1)))
+            //La on remarque que ca ne va pas, car au maximum sur une fonction random il va nous sortir un chiffre entre 0 et 8 mais nous au minimum nous voulons 8 chiffres dans notre mot de passe.
+            //Par conséquent on ajoute le nombre minimal de caractères requis au nombre aléatoire fourni par la fonction
+            console.log(Math.floor(Math.random() * (maxchar - minchar + 1)+minchar))  
+            var motdepasse = ''
+            for (var i = 0; i < string_length; i++) {
+            //Maintenant que nous connaissons la longueur de notre mot de passe nous allons faie une boucle qui ira chercher un nombre dans notre variable charactere
+                var rnum = Math.floor(Math.random() * charactere.length);
+                motdepasse += charactere.substring(rnum, rnum + 1);
+            }
+            document.getElementById("mdp").innerHTML = motdepasse;
+        });
+    </script>
+</body>
+
+</html>
