@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 10</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        pre{
+            background: #ccc;
+    box-sizing: border-box;
+    padding: 20px;
+        }
+    </style>
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 10</h1>
+            <p><strong>Objectif :</strong> Au lancement de la page, une roue de chargement tourne durant 3 secondes
+                avant de disparaître pour laisser la place au contenu de la page
+            </p>
+            <p>
+                <strong>Cadre de travail :</strong> 
+                Créez un fichier « index.html » avec le contenu suivant :
+                
+                <pre>
+&lt;!DOCTYPE html>
+&lt;html lang="en" dir="ltr">
+&lt;head>
+&lt;meta charset="utf-8">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+&lt;title>Loading Animation</title>
+&lt;link rel="stylesheet" href="main.css">
+&lt;/head>
+    &lt;body>
+        &lt;div id="loadingAnimation">&lt;/div>
+        &lt;div id="displayContent">
+        &lt;img src="logo_acs.png" alt="logo acs">
+        &lt;/div>
+        &lt;script type="text/javascript" src="main.js">&lt;/script>
+    &lt;/body>
+&lt;/html>
+</pre>
+            </p>
+            <p>
+                Créez ensuite un fichier « main.css  » dans lequel vous mettrez le contenu suivant :
+
+<pre>
+#displayContent {
+display: none;
+text-align: center;
+margin-top: 40vh;
+transform: translateY(-50%);
+}
+
+#loadingAnimation {
+position: absolute;
+left: 50%;
+top: 50%;
+width: 12vh;
+height: 12vh;
+border: 16px solid #f3f3f3;
+border-radius: 48%;
+border-top: 16px solid #d31f43;
+animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+                </pre>
+            </p>
+            <p>
+                <strong>Consigne : </strong>
+L'exercice consiste à changer les propriétés CSS « display » des 2 divs après un laps de temps (par exemple 3 secondes).
+
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
