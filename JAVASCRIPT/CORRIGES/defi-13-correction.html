@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 13</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        #resultat>div {margin:2%}
+    </style>
+    
+    <div class="container" >
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 13</h1>
+            <p>A l'arrivée sur la page, générez automatiquement un bouton dans la div resultat avec pour intitulé "Génère moi le tableau".<br/>Au clique sur celui-ci des cards bootstrap devront être générées avec pour contenu une image aléatoire ainsi que le prénom de l'apprenant. <br> ex card : https://getbootstrap.com/do cs/4.0/components/card/<br/>Attention vous n'avez pas le droit de toucher l'HTML</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat" class="container d-flex flex-wrap p-0 justify-content-center">
+
+        </div>
+        
+
+    </div>
+    <script>
+
+        function additionDeuxNombres(premierchiffrequelonmedonne, ledeuxiemechiffrequelonmedonne){
+            console.log(premierchiffrequelonmedonne + ledeuxiemechiffrequelonmedonne )
+        }
+
+        //Quention combien font 2+2
+        //Dans ta tete tu de dis ok, je prends le premier et je l'additionne au deuxieme. Donc la je remplace dans ma fonction premierchiffrequelonmedonne par 2 et ledeuxiemechiffrequelonmedonne par deux
+        additionDeuxNombres(2,2)
+
+        //fonction multiplication
+        function multiplication(table){
+            for(var i = 1; i < 11; i++){
+                console.log(table * i)
+            }
+        }
+
+        multiplication(6)
+
+        function gaolAverage(equipe, butsmarques, butpris){
+            console.log(equipe +" a un goal average de "+(butsmarques - butpris)+" en ayant marqué "+butsmarques+" buts et en en ayant pris "+butpris)
+        }
+    
+        gaolAverage('lyon', 113, 2)
+        gaolAverage('les connards de stéphanois', 1, 56)
+
+
+        function gaolAverage2(butsmarques, butpris, equipe="lyon"){
+            console.log(equipe +" a un goal average de "+(butsmarques - butpris)+" en ayant marqué "+butsmarques+" buts et en en ayant pris "+butpris)
+        }
+    
+        gaolAverage2(0, 10, 'lille')
+       
+
+          
+
+
+
+        //Définition des variables
+
+        let resultat = document.getElementById("resultat")
+        let apprenants = ["Aymeric", "Nargis", "Fabien", "Anisse", "Célia", "Jordan F", "Jordan L", "Loris", "Oguzhan","Quentin", "Kévin", "Bryan"]
+
+
+        //Definition des fonctions
+
+        function genereBouton (){
+            let bouton = document.createElement("button")
+            bouton.innerHTML="Génère moi le tableau"
+            bouton.id="lebouton"
+            resultat.appendChild(bouton)
+        }
+
+        //Notre fonction attend deux paramètres
+        function genereCards(parametre1, parametre2){
+           let card = document.createElement("div")
+           card.className="card"
+           let imagecard = document.createElement("img")
+           imagecard.src = "https://picsum.photos/200/300?random="+parametre2
+           imagecard.className="card-img-top"
+           imagecard.alt = "Card image cap"
+           let cardbody = document.createElement("div")
+           cardbody.className = "card-body"
+           let cardtitle = document.createElement("h5")
+           cardtitle.innerHTML=parametre1
+           cardtitle.className="card-title"
+           card.appendChild(imagecard)
+           cardbody.appendChild(cardtitle)
+           card.appendChild(cardbody)
+           resultat.appendChild(card)
+        }
+
+        function genereTableau(){
+            for (let index = 0; index < apprenants.length; index++) {
+                genereCards(apprenants[index], index)
+                //Au premier tour : genereCards(Aymeric, 0)
+                //Au deuxième tour : genereCards(Nargis, 1)
+                //...
+                //Au dernier tour : genereCards(Bryan, 11)
+            }
+            document.getElementById("lebouton").style.display="none"
+        }
+
+        //Appel des fonctions
+
+       genereBouton()
+        document.getElementById("lebouton").addEventListener("click", () => {
+            genereTableau()
+        })
+    
+       
+    </script>
+</body>
+
+</html>

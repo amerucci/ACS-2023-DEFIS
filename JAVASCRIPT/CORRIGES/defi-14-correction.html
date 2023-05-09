@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 14</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        li {
+            width: 100%
+        }
+    </style>
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 14</h1>
+            <p>Écrivez un programme court qui écrit chaque nombre de 1 à 100 sur une nouvelle ligne.<br />
+                Pour chaque multiple de 3, écrivez “Fizz” au lieu du nombre.<br />
+                Pour chaque multiple de 5, écrivez “Buzz” au lieu du nombre.<br />
+                Pour les nombres multiples de 3 et 5, écrivez “FizzBuzz” à la place du nombre.</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat" class="container d-flex flex-wrap p-0 justify-content-center">
+
+        </div>
+
+    </div>
+    <script>
+        //SOLUTION 01
+        for (let index = 1; index <= 100; index++) {
+            if (index % 3 == 0 && index % 5 == 0) {
+                document.querySelector('#resultat').innerHTML += "<li>FizzBuzz</li>"
+            } else if (index % 3 == 0) {
+                document.querySelector('#resultat').innerHTML += "<li>Fizz</li>"
+            } else if (index % 5 == 0) {
+                document.querySelector('#resultat').innerHTML += "<li>Buzz</li>"
+            } else {
+                document.querySelector('#resultat').innerHTML += "<li>" + index + "</li>"
+            }
+        }
+        /*SOLUTION 02*/
+        // for (let index = 1; index <= 100; index++) {
+
+        //      if(Number.isInteger(index / 5) && Number.isInteger(index / 3)){
+        //         document.querySelector('#resultat').innerHTML += "<li>FizzBuzz</li>"
+        //     }
+        //     else if(Number.isInteger(index / 3)){
+        //         document.querySelector('#resultat').innerHTML += "<li>Fizz</li>"
+        //     }
+        //     else if(Number.isInteger(index / 5)){
+        //         document.querySelector('#resultat').innerHTML += "<li>Buzz</li>"
+        //     }
+        //     else{
+        //         document.querySelector('#resultat').innerHTML += "<li>"+index+"</li>"
+        //     }
+        // }
+    </script>
+
+</body>
+
+</html>
