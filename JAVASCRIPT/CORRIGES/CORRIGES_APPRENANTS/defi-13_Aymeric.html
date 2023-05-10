@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 13</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <style>
+        #resultat>div {
+            margin: 2%
+        }
+    </style>
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 13</h1>
+            <p>A l'arrivée sur la page, générez automatiquement un bouton dans la div resultat avec pour intitulé
+                "Génères moi le tableau".<br />Au clique sur celui-ci des cards bootstrap devront être générées avec
+                pour contenu une image aléatoire ainsi que le prénom de l'apprenant. <br> ex card :
+                https://getbootstrap.com/docs/4.0/components/card/<br />Attention vous n'avez pas le droit de toucher
+                l'HTML</p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat" class="container d-flex flex-wrap p-0 justify-content-center">
+
+        </div>
+
+
+    </div>
+    <script type="module">
+
+
+
+
+
+        function createElement(tag, params, html) {
+
+            if (typeof params === 'string') {
+                html = params;
+                params = {};
+            }
+
+
+
+            if (typeof tag !== 'string') {
+                throw new TypeError('tag must be a String');
+            }
+
+            params ??= {}
+            html ??= '';
+
+            const elem = document.createElement(tag);
+
+            for (let attr in params) {
+                let value = params[attr];
+                if (attr === 'html') {
+                    html = value;
+                    continue;
+                }
+
+                if (typeof value === 'string') {
+                    elem.setAttribute(attr, value);
+                }
+                else {
+                    elem[attr] = value;
+                }
+            }
+
+
+
+            if (html instanceof Element) {
+                html = [html];
+            }
+
+            if (Array.isArray(html) || html instanceof NodeList) {
+                let tmp = document.createElement('div');
+                html.forEach(elem => {
+                    if (elem instanceof Element) {
+                        tmp.appendChild(elem);
+                    } else if (typeof elem === 'string') {
+                        tmp.innerHTML += elem;
+                    }
+                });
+                html = tmp.innerHTML;
+            }
+
+
+            elem.innerHTML = html;
+            return elem;
+
+        }
+
+        async function getRandomImageUrl() {
+            return await fetch(
+                //'https://loremflickr.com/320/240'
+                'https://picsum.photos/320/240'
+                , { redirect: "follow" }).then(resp => resp.url);
+        }
+
+
+        async function generateCard(prenom = '') {
+
+            generateCard.id ??= -1;
+            generateCard.id++;
+            const
+                card = createElement(
+                    'div',
+                    { class: 'card m-2', style: 'width: 320px;' },
+                    [
+                        createElement('img', {
+                            class: 'card-img-top',
+                            alt: 'Random image',
+                            src: 'https://picsum.photos/320/240?' + generateCard.id,
+                        }),
+                        createElement(
+                            'div',
+                            { class: 'card-body text-center' },
+                            createElement('p', { class: 'card-text' }, prenom)
+                        )
+                    ]
+                );
+
+
+
+
+            return card;
+        }
+
+        async function generateRow() {
+
+            let row = createElement('div', { class: 'row' }),
+                randomPrenoms = [...prenoms.sort(() => 0.5 - Math.random())], prenom;
+
+            while (prenom = randomPrenoms.shift()) {
+                row.appendChild(await generateCard(prenom));
+            }
+
+
+
+            target.appendChild(row);
+            return row;
+        }
+
+
+
+        const
+
+            prenoms = [
+                'Nargis', 'Aymeric', 'Fabien', 'Anisse', 'Célia', 'Jordan F',
+                'Jordan L', 'Loris', 'Oguzhan', 'Quentin', 'Kévin', 'Bryan'
+            ],
+
+            target = document.querySelector('#resultat'),
+
+            btn = createElement(
+                'button',
+                {
+                    type: 'button',
+                    class: 'btn btn-secondary btn-block rounded-pill',
+                    onclick() {
+                        btn.disabled = true;
+                        generateRow().then(row => {
+                            btn.disabled = null;
+                            row.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        });
+                    }
+                },
+                'Génères moi le tableau'
+            );
+
+        target.appendChild(btn);
+        //console.debug(btn);
+
+
+
+    </script>
+
+</body>
+
+</html>
