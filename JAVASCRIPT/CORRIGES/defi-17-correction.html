@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 17</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 17</h1>
+            <p>
+                Déterminez si une phrase est un pangramme. <br />
+                1 phrase, toutes les lettres de l'alphabet.<br />
+                <b><i>« Dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone ».</i></b><br />
+                Cette phrase est un pangramme, c'est-à-dire qu'elle utilise toutes les lettres de l'alphabet.<br />
+                Créez une fonction qui analysera une phrase saisie et nous dira si oui ou non cette phrase est un
+                pangramme.
+            </p>
+        </div>
+        <h2>Résultat</h2>
+        <div id="resultat">
+            <form action="#">
+                <input type="text" class="form-control my-3" id="maphrase" placeholder="Saisissez votre phrase">
+                <input type="submit" class="btn btn-primary" value="Vérifier ma phrase" id="verifier">
+                <div id="pangramme" class="my-3"></div>
+            </form>
+
+
+
+        </div>
+        <script>
+            pangramme = document.getElementById('pangramme')
+
+            document.getElementById("verifier").addEventListener("click", (e) => {
+                //La méthode preventDefault(), rattachée à l'interface Event, indique à l'agent utilisateur que si l'évènement n'est pas explicitement géré, l'action par défaut ne devrait pas être exécutée comme elle l'est normalement.
+                e.preventDefault()
+                //var maphrase = "Dans un wagon bleu, tout en-mangeant cinq kiwis frais, vous jouez du xylophone"
+                let alphabet = "abcdefghijklmnopqrstuvwxyz";
+                var maphrase = document.getElementById("maphrase").value
+                //toLowerCase : La méthode toLowerCase() retourne la chaîne de caractères courante en minuscules.
+                //replaceAll : La méthode replaceAll() retourne une nouvelle chaîne de caractères dans laquelle toutes les occurrences d'un motif donné ont été remplacées par une chaîne de remplacement.
+                let minuscule = maphrase.toLowerCase().replaceAll(" ", "");
+                console.log(alphabet)
+                console.log(minuscule)
+                //Depuis l'ECMAScript 5, il est possible de manipuler la chaîne comme un tableau. Du coup alphabet[2] retourne c
+                for (let i = 0; i < alphabet.length; i++) {
+                    //indexOf : renvoie le premier indice pour lequel on trouve un élément donné dans un tableau. Si l'élément cherché n'est pas présent dans le tableau, la méthode renverra -1
+                    console.log(minuscule.indexOf(alphabet[i]))
+                    if (minuscule.indexOf(alphabet[i]) === -1) {
+                        pangramme.innerHTML = "Cette phrase n'est pas un pangramme"
+                        //break : permet de terminer la boucle en cours
+                        break
+                    } else {
+                        pangramme.innerHTML = "Cette phrase est un pangramme"
+                    }
+                }
+            })
+        </script>
+</body>
+
+</html>
