@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 20</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+
+
+
+        <div class="jumbotron">
+            <h1 class="mb-3" style="width:100%">Defi JS - 20 - Correction</h1>
+            <p>Chechons Charlie, cependant il est bien caché. C'est pourquoi il vous est demandé dans ce défi de gérer le zoom sur l'image, ainsi que son déplacement à la souris.</p>
+
+
+        </div>
+
+        <div id="resultat" class="row" style=" height:45vh; overflow: hidden;">
+            <img src="https://123sonography.com/sites/default/files/article/images/2_Waldo_Illustration.png" width="100%">
+        </div>
+
+
+
+
+
+    </div>
+    <script>
+        /***************************
+         * VARIABLE INITIALISATION *
+         ***************************/
+        const img = document.querySelector("#resultat img");
+        // var dragItem = document.querySelector("#resultat img");
+        var container = document.querySelector("#resultat");
+        var active = false;
+        var currentX = 0;
+        var currentY = 0;
+        var initialX;
+        var initialY;
+        var xOffset = 0;
+        var yOffset = 0;
+        var imgsize = 1
+        let zoom = 1;
+        const indiceZoom = 1;
+
+
+
+        /*****************
+         * ADD LISTENERS *
+         *****************/
+         img.addEventListener("mousedown", dragStart, false);
+         img.addEventListener("mouseup", dragEnd, false);
+         img.addEventListener("mousemove", drag, false);
+
+        /***********************
+         * LUNCH DRAG EVENMENT *
+         ***********************/
+        function dragStart(e) {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+            if (e.target === img) {
+                active = true;
+            }
+
+            // console.log(e.clientX)
+            console.log(initialX)
+      
+        }
+        /**********************
+         * STOP DRAG EVENMENT *
+         **********************/
+        function dragEnd(e) {
+            initialX = currentX;
+            initialY = currentY;
+            active = false;
+            
+        }
+        /****************
+         * DRAG PROCESS *
+         ****************/
+        function drag(e) {
+            if (active) {
+               
+                e.preventDefault();
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+                xOffset = currentX;
+                yOffset = currentY;
+
+console.log(currentX, currentY)
+//console.log(e.clientX )
+
+                setTranslate(currentX, currentY, img);
+            }
+        }
+        /*********************
+         * MOVEMENT FUNCTION *
+         *********************/
+        function setTranslate(xPos, yPos, el) {
+            el.style.transform = "translate(" + xPos + "px, " + yPos + "px) scale(" + imgsize + ")"; 
+        }
+        /*****************
+         * ZOOM FUNCTION *
+         *****************/
+        document.addEventListener("wheel", (e) => {
+            //console.log(e)
+           // console.log(e.clientX, e.clientY)
+
+            if (e.deltaY > 0) {
+                img.style = "transform : translate("+ currentX+"px, "+currentY +"px)  scale("+(zoom += indiceZoom)+");   "
+                imgsize = zoom += indiceZoom;
+               console.log(imgsize)
+            } else {
+                img.style = "transform : translate("+ currentX+"px, "+currentY +"px)  scale("+(zoom -= indiceZoom)+")   "
+                if(é < 1 ){
+                    img.style.transform = `scale(1)`;  
+                    zoom = 1
+                    console.log(imgsize)
+                }
+                else{
+                    img.style = "transform : translate("+ currentX+"px, "+currentY +"px)  scale("+(zoom -= indiceZoom)+")   "
+                    imgsize = zoom -= indiceZoom;
+                    console.log(imgsize)
+                } 
+                //console.log(imgsize)
+            }
+        })
+    </script>
+</body>
+
+</html>

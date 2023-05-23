@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 19</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 350px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table th {
+            width: 50%;
+            text-align: left;
+            display: inline-block;
+            box-sizing: border-box;
+        }
+    </style>
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="personnagegenere"></div>
+            </div>
+        </div>
+
+        <div class="jumbotron">
+            <h1>Defi JS - 19 - Durée : 2 heures</h1>
+            <p>
+                Pour une partie de Donjons & Dragons , chaque joueur commence par générer un personnage avec lequel il
+                peut jouer. Ce personnage a, entre autres, six capacités ; force, dextérité, constitution, intelligence,
+                sagesse et charisme. Ces six capacités ont des scores qui sont déterminés au hasard. Pour ce faire,
+                lancez quatre dés à 6 faces et enregistrez la somme des trois plus grands dés. Vous faites cela six
+                fois, une fois pour chaque capacité.
+            </p>
+            <p>Les points de vie initiaux de votre personnage sont de 10 + le modificateur de constitution de votre
+                personnage. Vous trouvez le modificateur de constitution de votre personnage en soustrayant 10 de la
+                constitution de votre personnage, divisez par 2 et arrondissez à l'inférieur.</p>
+            <p>Écrivez un générateur de caractères aléatoires qui suit les règles ci-dessus.</p>
+            <p>Par exemple, les six lancers de quatre dés peuvent ressembler à :
+                <li>5, 3, 1, 6 : Vous défaussez le 1 et la somme 5 + 3 + 6 = 14, que vous attribuez à la force.</li>
+                <li>3, 2, 5, 3 : Vous défaussez le 2 et somme 3 + 5 + 3 = 11, que vous attribuez à la dextérité.</li>
+                <li>1, 1, 1, 1 : Vous défaussez le 1 et la somme 1 + 1 + 1 = 3, que vous affectez à la constitution.
+                </li>
+                <li>2, 1, 6, 6 : Vous défaussez le 1 et la somme 2 + 6 + 6 = 14, que vous attribuez à l'intelligence.
+                </li>
+                <li>3, 5, 3, 4 : Vous défaussez le 3 et somme 5 + 3 + 4 = 12, que vous attribuez à la sagesse.</li>
+                <li>6, 6, 6, 6 : Vous vous débarrassez du 6 et sommez 6 + 6 + 6 = 18, que vous attribuez au charisme.
+                </li>
+            </p>
+            <p>
+                Parce que la constitution est de 3, le modificateur de constitution est de -4 et les points de vie sont
+                de 6.
+            </p>
+            <p>
+                Vous générez tous les résultats dans la modale déjà mise en place. Le résultat attendu <a href="https://i.imgur.com/HwJ1Jbe.png" target="blank">ICI</a><br/>
+                A la fermeture de la modale, vous pourrez en recliquant sur le bouton "Générer votre personnage", en générer un nouveau.<br/>
+                Attention vous n'avez pas le droit de toucher à la structure HTML
+            </p>
+
+        </div>
+
+        <div id="resultat" class="row">
+            <div class="col-12 text-center row justify-content-center">
+                <form action="#" style="width:100%; max-width: 400px;">
+                    <input type="text" class="form-control my-3" id="nompersonnage"
+                        placeholder="Saisissez le nom de votre personnage">
+                    <input type="submit" class="btn btn-primary" value="Générer votre personnage"
+                        id="genererPersonnage">
+                </form>
+            </div>
+
+
+
+
+
+        </div>
+        <script>
+            //Définition des variables
+
+            let force
+            let dexterite
+            let constitution
+            let intelligence
+            let sagesse
+            let charisme
+            let pointdevie
+            let nombres
+            let nom
+
+            //Définition des fonction
+
+            //cette fonction retourne un nombre aléatoire entre 1 et 6
+            //ceil arrondi a l'entier suppérieur
+            function lancesDes() {
+                let nombre = Math.ceil(Math.random() * 6)
+                return nombre
+            }
+
+            //Retourner un tableau de tous les resultats des lancés de dés
+            function resultatLance() {
+                let resultat = []
+                for (let index = 0; index < 4; index++) {
+                    resultat.push(lancesDes());
+                    //si lancesDes() retourne 2 4 3 1
+                    //au premier tour : resultat[2]
+                    //au deuxieme tour : resultat[2,4]
+                    //au Troisieme tour : resultat[2, 4, 3]
+                    //au quatrième tour : resultat[2, 4, 3, 1]
+                }
+                return resultat
+            }
+
+            function traitementLances(array) {
+                //On tri le tableau par ordre croissant et l'on supprime le premier élément
+                array.sort((a, b) => a - b).shift();
+                return array
+            }
+
+           
+
+
+            function calcul() {
+                nombres = resultatLance()
+                console.log(nombres)
+                let point = traitementLances(nombres)
+                console.log(point)
+                resultatPoint = point.reduce((a, b) => a + b);
+                return resultatPoint
+            }
+
+           
+            function personnage() {
+                let args = Array.prototype.slice.call(arguments);
+                let intituleTab = ["Point de vie", "force", "dexterite", "constitution", "intelligence", "sagesse",
+                    "charisme",
+                ]
+                let personnage = document.createElement("div")
+                personnage.className = "personnage"
+                personnage.style = "text-align:center"
+                let imagepersonnage = document.createElement("img")
+                imagepersonnage.src =
+                    "https://picsum.photos/200/300?random="
+                imagepersonnage.style =
+                    "border-radius: 50%;width: 250px;border: 10px solid #d31e44;height: 250px;    object-fit: cover;"
+                imagepersonnage.className = "card-img-top"
+                imagepersonnage.alt = "Card image cap"
+                let cardbody = document.createElement("div")
+                cardbody.className = "card-body"
+                let cardtitle = document.createElement("h5")
+                cardtitle.innerHTML = nom
+                cardtitle.className = "my-3"
+                cardtitle.style =
+                    "font-family: 'Suez One', serif; color:#d31e44; text-transform: uppercase; font-size: 30px;"
+                let tablepersonnage = document.createElement("table")
+                cardbody.appendChild(imagepersonnage)
+                cardbody.appendChild(cardtitle)
+                cardbody.appendChild(tablepersonnage)
+                for (let index = 0; index < intituleTab.length; index++) {
+                    let tr = document.createElement("tr")
+                    tr.style = "margin-bottom:10px; width:100%; display:block"
+                    let th1 = document.createElement("th")
+                    let th2 = document.createElement("th")
+                    th1.style =
+                        "background: #d31e44;color: #fff;padding: 10px 10px;text-transform: uppercase; width:50%; font-size:12px"
+                    th2.style = "text-align:center; font-family: 'Suez One', serif; width:50%;"
+                    th1.innerHTML = intituleTab[index]
+                    th2.innerHTML = args[index]
+                    tr.appendChild(th1)
+                    tr.appendChild(th2)
+                    tablepersonnage.appendChild(tr)
+                }
+                personnage.appendChild(cardbody)
+                personnagegenere.appendChild(personnage)
+            }
+
+            function reinitialierPerso() {
+                let personnagegenere = document.getElementById('personnagegenere');
+                personnagegenere.removeChild(personnagegenere.lastElementChild);
+            }
+
+            //Application des fonctions
+    // force = calcul()
+    //                 dexterite = calcul()
+    //                 constitution = calcul()
+    //                 intelligence = calcul()
+    //                 sagesse = calcul()
+    //                 charisme = calcul()
+
+            // console.log("force : " + force)
+            // console.log("dexterite : " + dexterite)
+            // console.log("constitution : " + constitution)
+            // console.log("intelligence : " + intelligence)
+            // console.log("sagesse : " + sagesse)
+            // console.log("sagesse : " + charisme)
+            // console.log("Point de Vie : " + pointdevie)
+
+            //Gestion de la modal
+
+            var modal = document.getElementById("myModal");
+            var btn = document.getElementById("genererPersonnage");
+            var span = document.getElementsByClassName("close")[0];
+            btn.onclick = function () {
+                event.preventDefault()
+                nom = document.getElementById("nompersonnage").value
+                if(nom != ""){
+                    modal.style.display = "block";
+                    force = calcul()
+                dexterite = calcul()
+                constitution = calcul()
+                intelligence = calcul()
+                sagesse = calcul()
+                charisme = calcul()
+                pointdevie = (10 + (Math.floor((constitution - 10) / 2)))
+                personnage(pointdevie, force, dexterite, constitution, intelligence, sagesse, charisme)
+
+document.getElementById("nompersonnage").value=""
+                }
+                else{
+                    document.getElementById("nompersonnage").style="border:1px solid red"
+                }
+                
+               
+        
+
+              
+
+            }
+            span.onclick = function () {
+                modal.style.display = "none";
+                reinitialierPerso()
+            }
+            window.onclick = function (event) {
+
+                if (event.target == modal) {
+                    reinitialierPerso()
+                    modal.style.display = "none";
+                }
+
+            }
+        </script>
+</body>
+
+</html>
+
