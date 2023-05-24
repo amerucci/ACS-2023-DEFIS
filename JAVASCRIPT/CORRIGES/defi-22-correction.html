@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 22</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+
+
+
+        <div class="jumbotron">
+            <h1 class="mb-3" style="width:100%">Defi JS - 22</h1>
+            <p>Dans ce défi il vous sera demandé dans un premier temps de créer deux tableaux, un contenant une liste
+                des prénoms des apprenant, ainsi qu'un tableau vide.</p>
+            <p>Su notre page nous aurons pour affichage : <ul>
+                    <li>Le tableau des apprenants</li>
+                    <li>Le bouton "Choisir un apprenant"</li>
+                    <li>Le tableau des apprenants déjà choisi</li>
+                </ul>
+            </p>
+            <p>Au clique du bouton, "Choisi un apprenant", le programme va alors chercher aléatoirement un apprenant
+                dans le tableau, afficher son prénom sur la page et par la suite l'ajouter dans notre tableau vide.</p>
+            <p>A chaque clique sur le bouton un nouvel apprenant sera choisi, cependant le tableau lui devra être réduit
+                des apprenants déjà selectionnés.</p>
+        </div>
+
+        <div id="resultat" class="d-flex">
+            <div class="col-4">
+                <h2>Apprenants</h2>
+                <p class="arrayStudent"></p>
+            </div>
+            <div class="col-4 text-center"><button id="generer">Choisi un apprennant</button>
+                <p class="yourTurn"></p>
+            </div>
+            <div class="col-4">
+                <h2>Apprenants passés</h2>
+                <ul class="arrayStudentPassed"></ul>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <script>
+        //VARIABLES
+        let students = ["Vincent", "Bernard", "Natan", "Jorge", "Léo", "Pauline", "Hamza", "Julien", "Karolos", "Antoine", "Vola", "Chris" ]
+        let studentsPassed = []
+        let generate = document.querySelector("#generer")
+        let studentDisplay = document.querySelector(".yourTurn")
+        let arrayStudent = document.querySelector(".arrayStudent")
+        let arrayStudentPassed = document.querySelector(".arrayStudentPassed")
+
+
+        //ACTIONS
+        generate.addEventListener("click", function () {
+            let index = Math.floor(Math.random() * students.length)
+
+            studentDisplay.innerHTML = students[index]
+
+            // IMPORTANT : La méthode indexOf() renvoie le premier indice pour lequel on trouve un élément donné dans un tableau. Si l'élément cherché n'est pas présent dans le tableau, la méthode renverra -1.
+
+            //On récupère l'index dans le tableau, de l'apprenant choisi
+            let studentPosition = students.indexOf(students[index]);
+            console.log(studentPosition)
+
+            //On ajoute dans le tableau vide, l'apprenant choisi
+            studentsPassed.push(students[index])
+            console.log(studentsPassed)
+         
+            // IMPORTANT : La méthode splice() modifie le contenu d'un tableau en retirant des éléments et/ou en ajoutant de nouveaux éléments à même le tableau.On peut ainsi vider ou remplacer une partie d'un tableau.
+
+            //Maintenant on supprime du tableau apprenant l'apprenant choisi
+            students.splice(studentPosition, 1)
+            console.log(students)
+
+            // IMPORTANT : La méthode join() crée et renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau (ou d'un objet semblable à un tableau). La concaténation utilise la virgule ou une autre chaîne, fournie en argument, comme séparateur.
+
+            //On affiche le tableau des apprenants passés
+            arrayStudentPassed.innerHTML = studentsPassed.join("<br>")
+
+            //On affiche le tableau des apprenants restant
+            arrayStudent.innerHTML = students.join("<br>")
+        })
+
+        //On affiche de base le tableau
+        arrayStudent.innerHTML = students.join("<br>")
+
+        
+      
+    </script>
+</body>
+
+</html>
