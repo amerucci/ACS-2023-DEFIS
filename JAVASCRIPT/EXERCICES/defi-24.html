@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi JS - 24</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Suez+One&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div class="d-flex justify-content-between mb-3">
+
+            <div class="logo-acs"><img
+                    src="https://www.accesscodeschool.fr/wp-content/uploads/2018/10/logo_acs_noir.png"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+
+            <div class="logo-ofp"> <img src="https://www.onlineformapro.com/wp-content/uploads/2020/01/logo-03.svg"
+                    style="max-height: 66px; max-width: 200px;" />
+            </div>
+
+        </div>
+
+
+
+
+        <div class="jumbotron">
+            <h1 class="mb-3" style="width:100%">Defi JS - 24</h1>
+            <p>Dans ce défi il vous sera demandé au click sur le bouton d'ouvrir une boite de dialogue invitant
+                l'utilisateur à saisir le nom d'un animal. </p>
+            <p>Celui-ci devra être enegistré dans un tableau mais aussi en local</p>
+            <p>Quand vous rechargerez votre page, le programme devra vérifier s'il existe quelque chose stocké en local
+                et auquel cas l'affichera sur la page.</p>
+            <p class="bg-danger text-white p-2">Si quelque chose est en local et que vous décidez d'ajouter un nouvel
+                animal celui-ci devra s'ajouter à l'enregistrement déjà présent et non pas le remplacer</p>
+
+        </div>
+
+        <div id="resultat" class="d-flex flex-wrap">
+            <button id="setAnimal">Saisissez le nom d'un animal</button>
+            <ul id="arrayAnimals"></ul>
+        </div>
+
+
+
+
+
+    </div>
+
+
+</body>
+
+</html>
